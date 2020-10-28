@@ -1,1 +1,8 @@
 [1022/140517.316:ERROR:directory_reader_win.cc(43)] FindFirstFile: System nie moze odnalezc okreslonej sciezki. (0x3)
+[1022/155126.627:ERROR:directory_reader_win.cc(43)] FindFirstFile: System nie moze odnalezc okreslonej sciezki. (0x3)
+[1022/235808.005:ERROR:process_reader_win.cc(127)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[1022/235808.005:ERROR:process_reader_win.cc(127)] NtOpenThread: {Odmowa dostepu} Proces zazadal dostepu do obiektu, ale prawa dostepu nie zostaly przyznane. (0xc0000022)
+[1022/235808.024:ERROR:exception_snapshot_win.cc(100)] thread ID 14392 not found in process
+[1022/235808.024:ERROR:exception_snapshot_win.cc(100)] thread ID 14332 not found in process
+[1022/235808.835:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Marta\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\d809c100-9410-412d-943e-1c10ae50f103: System nie moze odnalezc okreslonej sciezki. (0x3)
+[1022/235808.862:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\Marta\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\410e13ca-804a-49e1-915e-d6d60532966b: System nie moze odnalezc okreslonej sciezki. (0x3)

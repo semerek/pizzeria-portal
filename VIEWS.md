@@ -24,7 +24,7 @@
     - umożliwia edycję i zapisanie zmian
 - `/tables/booking/:id/new`
     - analogicznie do powyższej bez początkowych informacji
-- `/tables/events/:id/new`
+- `/tables/events/:id/`
     - analogicznie do powyższej bez początkowych informacji
 - `/tables/events/:id/new`
     - analogicznie do powyższej bez początkowych informacji
