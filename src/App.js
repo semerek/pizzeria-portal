@@ -22,7 +22,7 @@ function App() {
       <StylesProvider injectFirst>
         <MainLayout>
           <Switch>
-            <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
+            <Route exact path={`${process.env.PUBLIC_URL}/panel`} component={Home} />
             <Route exact path={process.env.PUBLIC_URL + '/login'} component={Login} />  
             <Route exact path={process.env.PUBLIC_URL + '/kitchen'} component={Kitchen} />  
             <Route exact path={process.env.PUBLIC_URL + '/tables'} component={Tables} />  
