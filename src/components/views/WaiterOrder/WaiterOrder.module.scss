@@ -1,5 +1,55 @@
 @import '../../../styles/settings.scss';
 
+
 .component {
   padding: $base-size;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+.order {
+  display: flex;
+  padding: 25px;
+  justify-content: space-around;
+}
+
+.menuRow {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+}
+
+.position {
+  padding: 10px;
+}
+
+.table {
+  max-width: 60%;
+  border: 1px solid #345678;
+  padding: 22px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    margin: 0 30px;
+  }
+}
+
+.addOrder {
+  margin-left: auto;
+}
+
+
+.addInMenu {
+  background-color: lighten(#345678, 40%);
+  margin: 14px;
+}
+
+.foot {
+  text-align: right;
 }

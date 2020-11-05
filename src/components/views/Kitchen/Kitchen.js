@@ -43,10 +43,12 @@ const Kitchen = () => (
     <Paper>
       <Table>
         <TableHead>
-          <TableCell>Order</TableCell>
-          <TableCell>Table number</TableCell>
-          <TableCell>Products</TableCell>
-          <TableCell>Status</TableCell>
+          <TableRow>
+            <TableCell>Order</TableCell>
+            <TableCell>Table number</TableCell>
+            <TableCell>Products</TableCell>
+            <TableCell>Status</TableCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {demoContent.map(row => (

@@ -15,14 +15,14 @@ function Login() {
         id="standard-basic" 
         label="Login" 
         variant="outlined"/>
-      <TextField
+      <TextField 
         id="standard-password-input"
         label="password"
         type="password"
         autoComplete="current-password"
         variant="outlined"
       />
-      <Button  variant="contained" color="primary">
+      <Button className={styles.button}  variant="contained" color="primary">
           Log in
       </Button>
     </div>

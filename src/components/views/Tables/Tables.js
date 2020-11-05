@@ -13,11 +13,74 @@ import DateFnsUtils from '@date-io/date-fns';
 import {DatePicker, MuiPickersUtilsProvider} from '@material-ui/pickers';
 
 const demoContent = [
-  {time: '13:00', id: '1', type: 'reservation'},
-  {time: '13:30', id: '2', type: 'reservation'},
-  {time: '14:00', id: '3', type: 'reservation'},
-  {time: '14:00', id: '4', type: 'event'},
+  {time: '13:00', tables: [
+    {
+      id: 'table-1',
+      type: 'reservation',
+    },
+    {
+      id: 'table-2',
+    },
+    {
+      id: 'table-3',
+      type: 'event',
+    },
+    {
+      id: 'table-4',
+    },
+  ]},
+  {time: '13:30', tables: [
+    {
+      id: 'table-1',
+    },
+    {
+      id: 'table-2',
+      type: 'reservation',
 
+    },
+    {
+      id: 'table-3',
+      type: 'event',
+    },
+    {
+      id: 'table-4',
+    },
+  ]},
+  {time: '14:00', tables: [
+    {
+      id: 'table-1',
+      type: 'reservation',
+    },
+    {
+      id: 'table-2',
+      type: 'event',
+
+    },
+    {
+      id: 'table-3',
+      type: 'event',
+    },
+    {
+      id: 'table-4',
+    },
+  ]},
+  {time: '14:30', tables: [
+    {
+      id: 'table-1',
+    },
+    {
+      id: 'table-2',
+    },
+    {
+      id: 'table-3',
+      type: 'reservation',
+    },
+    {
+      id: 'table-4',
+      type: 'event',
+
+    },
+  ]},
 ];
 
 const renderActions = (type, id) => {
@@ -37,10 +100,14 @@ const renderActions = (type, id) => {
 const Tables = () => (
 
   <div className={styles.component}>
-    <h2>Tables bookings</h2>
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <DatePicker/>
-    </MuiPickersUtilsProvider>
+    <h2>Tables booking view</h2>
+    <form className={styles.form}>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <DatePicker/>
+      </MuiPickersUtilsProvider>
+      <Button className={styles.button} component={Link} to={process.env.PUBLIC_URL +'/tables/events/new'}>New event</Button> 
+      <Button className={styles.button} component={Link} to={process.env.PUBLIC_URL +'/tables/bookings/new'}>New reservation</Button>
+    </form>
     <Paper className={styles.component}>
       <Table>
         <TableHead>
@@ -58,38 +125,18 @@ const Tables = () => (
               <TableCell component="th" scope="row">
                 {row.time}
               </TableCell>
-              <TableCell>
-                {renderActions(row.type, row.id)}
-              </TableCell>
-              <TableCell>
-                {renderActions(row.type, row.id)}
-              </TableCell>
-              <TableCell>
-                {renderActions(row.type, row.id)}
-              </TableCell>
-              <TableCell>
-                {renderActions(row.type, row.id)}
-              </TableCell>
-            </TableRow>
-          ))}
+              {row.tables.map (table => (
+                <TableCell key={table.id}>
+                  {renderActions(table.type, table.id)} 
+                </TableCell>
+              ))}
+            </TableRow>  
+          ))}     
         </TableBody>
       </Table>
     </Paper>
   </div>
 );
 
-{/* function Tables() {
-  return (
-    <div className={styles.component}>
-      <h2> Tables view </h2>
-      <ul>
-        <li><Link to={process.env.PUBLIC_URL + '/tables/booking/:id'} className={styles.link} activeClassName='active'>Tables booked</Link></li>
-        <li><Link to={process.env.PUBLIC_URL + '/tables/booking/new'} className={styles.link} activeClassName='active'>Tables booked new</Link></li>
-        <li><Link to={process.env.PUBLIC_URL + '/tables/events/:id'} className={styles.link} activeClassName='active'>Events booked</Link></li>
-        <li><Link to={process.env.PUBLIC_URL + '/tables/events/new'} className={styles.link} activeClassName='active'>Tables booked new</Link></li>
-      </ul>
-    </div>
-  );
-} */}
 
 export default Tables;

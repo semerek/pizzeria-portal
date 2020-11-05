@@ -26,7 +26,7 @@
     - analogicznie do powyższej bez początkowych informacji
 - `/tables/events/:id/`
     - analogicznie do powyższej bez początkowych informacji
-- `/tables/events/:id/new`
+- `/tables/events/new`
     - analogicznie do powyższej bez początkowych informacji
 
 
