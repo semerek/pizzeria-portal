@@ -24,7 +24,6 @@ const renderActions = status => {
     case 'free':
       return (
         <>
-          <Button>thinking</Button>
           <Button>new order</Button>
         </>
       );

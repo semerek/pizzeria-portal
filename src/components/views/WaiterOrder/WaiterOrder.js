@@ -47,7 +47,9 @@ const WaiterOrder = () => {
         <TableFooter>
           <TableRow>
             <TableCell>
-              <Button>New Order</Button>       
+              <Button >
+                <Link to={process.env.PUBLIC_URL + '/waiter/order/new'}>New Order</Link>
+              </Button>       
             </TableCell>
           </TableRow>
         </TableFooter>
