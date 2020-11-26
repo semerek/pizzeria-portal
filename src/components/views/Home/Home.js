@@ -37,7 +37,7 @@ const Home = () => (
         <TableBody>
           {demoStatistics.map(row => (
             <TableRow key={row.id}>
-              <TableCell component="th" scope="row">
+              <TableCell>
                 {row.id}
               </TableCell>
               <TableCell>

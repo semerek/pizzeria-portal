@@ -122,7 +122,7 @@ const Tables = () => (
         <TableBody>
           {demoContent.map(row => (
             <TableRow key={row.time}>
-              <TableCell component="th" scope="row">
+              <TableCell>
                 {row.time}
               </TableCell>
               {row.tables.map (table => (
