@@ -34,13 +34,18 @@ export const fetchFromAPI = () => {
       .catch(err => {
         dispatch(fetchError(err.message || true));
       });
+    
   };
 };
 
-export const update = (id, status) => {
+export const update = (id, status, payload) => {
   return (dispatch, getState) => {
 
     Axios
+      .put (`${api.url}/${api.tables}/${payload.id}`)
+      .then(res =>{
+        dispatch(fetchUpdate(res.data));
+      })
       .get(`${api.url}/${api.tables}`)
       .then(res => {
         dispatch(fetchUpdate(id, status));
