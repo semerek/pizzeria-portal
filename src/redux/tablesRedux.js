@@ -46,10 +46,6 @@ export const update = (id, status, payload) => {
       .then(res =>{
         dispatch(fetchUpdate(res.data));
       })
-      .get(`${api.url}/${api.tables}`)
-      .then(res => {
-        dispatch(fetchUpdate(id, status));
-      })
       .catch(err => {
         dispatch(fetchError(err.message || true));
       });
