@@ -20,7 +20,7 @@ class Waiter extends React.Component {
     }),
     tables: PropTypes.array,
     fetchStatus: PropTypes.func,
-    
+
   }
 
   componentDidMount() {
@@ -28,7 +28,7 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  renderActions(id, status){
+  renderActions(id, status) {
     const { fetchStatus } = this.props;
     switch (status) {
       case 'free':
@@ -80,40 +80,43 @@ class Waiter extends React.Component {
       );
     } else {
       return (
-        <Paper className={styles.component}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>Table</TableCell>
-                <TableCell>Status</TableCell>
-                <TableCell>Order</TableCell>
-                <TableCell>Action</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {tables.map(row => (
-                <TableRow key={row.id}>
-                  <TableCell>
-                    {row.id}
-                  </TableCell>
-                  <TableCell>
-                    {row.status}
-                  </TableCell>
-                  <TableCell>
-                    {row.order && (
-                      <Button  component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
-                        {row.order}
-                      </Button>
-                    )}
-                  </TableCell>
-                  <TableCell>
-                    {this.renderActions(row.id, row.status)}
-                  </TableCell>
+        <div className={styles.component}>
+          <h2> Waiter view</h2>
+          <Paper >
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Table</TableCell>
+                  <TableCell>Status</TableCell>
+                  <TableCell>Order</TableCell>
+                  <TableCell>Action</TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Paper>
+              </TableHead>
+              <TableBody>
+                {tables.map(row => (
+                  <TableRow key={row.id}>
+                    <TableCell>
+                      {row.id}
+                    </TableCell>
+                    <TableCell>
+                      {row.status}
+                    </TableCell>
+                    <TableCell>
+                      {row.order && (
+                        <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
+                          {row.order}
+                        </Button>
+                      )}
+                    </TableCell>
+                    <TableCell>
+                      {this.renderActions(row.id, row.status)}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Paper>
+        </div>
       );
     }
   }
