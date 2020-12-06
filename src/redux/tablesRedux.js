@@ -19,7 +19,7 @@ const FETCH_UPDATE = createActionName('FETCH_UPDATE');
 export const fetchStarted = payload => ({ payload, type: FETCH_START });
 export const fetchSuccess = payload => ({ payload, type: FETCH_SUCCESS });
 export const fetchError = payload => ({ payload, type: FETCH_ERROR });
-export const fetchUpdate = (id, status) => ({id, status, type: FETCH_UPDATE});
+export const fetchUpdate = payload => ({payload, type: FETCH_UPDATE});
 
 /* thunk creators */
 export const fetchFromAPI = () => {
@@ -38,11 +38,14 @@ export const fetchFromAPI = () => {
   };
 };
 
-export const update = (id, status, payload) => {
+export const update = (id, status, order) => {
   return (dispatch, getState) => {
 
     Axios
-      .put (`${api.url}/${api.tables}/${payload.id}`)
+      .put (`${api.url}/${api.tables}/${id}`, {
+        order,
+        status,
+      })
       .then(res =>{
         dispatch(fetchUpdate(res.data));
       })
@@ -86,7 +89,7 @@ export default function reducer(statePart = [], action = {}) {
     case FETCH_UPDATE: {
       return {
         ...statePart,
-        data: statePart.data.map (order => order.id === action.id ? {...order, status: action.status } : order ),
+        data: statePart.data.map (order => order.id === action.payload.id ? {...order, status: action.payload.status } : order ),
       };
     }
     default:

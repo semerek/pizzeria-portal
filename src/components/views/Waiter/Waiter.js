@@ -19,7 +19,7 @@ class Waiter extends React.Component {
       error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     }),
     tables: PropTypes.array,
-    fetchStatus: PropTypes.func,
+    updateStatus: PropTypes.func,
 
   }
 
@@ -28,9 +28,9 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  renderActions(id, status) {
-    const { fetchStatus } = this.props;
-    switch (status) {
+  renderActions(row) {
+    const { updateStatus } = this.props;
+    switch (row.status) {
       case 'free':
         return (
           <>
@@ -43,22 +43,28 @@ class Waiter extends React.Component {
         );
       case 'ordered':
         return (
-          <Button onClick={() => fetchStatus(id, 'ordered')}>prepared</Button>
+          <Button onClick={() => updateStatus(row.id, 'prepared', row.order)}>prepared</Button>
         );
       case 'prepared':
         return (
-          <Button onClick={() => fetchStatus(id, 'prepared')}>delivered</Button>
+          <Button onClick={() => updateStatus(row.id, 'delivered', row.order)}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button onClick={() => fetchStatus(id, 'delivered')}>paid</Button>
+          <Button onClick={() => updateStatus(row.id, 'paid', row.order)}>paid</Button>
         );
       case 'paid':
         return (
-          <Button onClick={() => fetchStatus(id, 'paid')}>free</Button>
+          <Button onClick={() => updateStatus(row.id, 'done', row.order)}>done</Button>
+        );
+      case 'done':
+        return (
+          <Button onClick={() => updateStatus(row.id, 'ordered', row.order)}>ordered</Button>
         );
       default:
         return null;
+
+
     }
   }
 
@@ -109,7 +115,7 @@ class Waiter extends React.Component {
                       )}
                     </TableCell>
                     <TableCell>
-                      {this.renderActions(row.id, row.status)}
+                      {this.renderActions(row)}
                     </TableCell>
                   </TableRow>
                 ))}
